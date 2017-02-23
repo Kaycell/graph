@@ -1,5 +1,7 @@
 package graph
 
+import "fmt"
+
 // Graph represents an undirected graph.
 // The zero value in an empty graph ready to use
 type Graph struct {
@@ -22,4 +24,17 @@ func (g *Graph) AddEdge(v int, w int) {
 	g.adj[v] = append(g.adj[v], w)
 	g.adj[w] = append(g.adj[w], v)
 	g.nbEdges++
+}
+
+// String returns a string representation of the graph's adjacency lists
+func (g Graph) String() string {
+	s := fmt.Sprintln(g.nbVertices, "vertices,", g.nbEdges, "edges")
+	for v := 0; v < g.nbVertices; v++ {
+		s += fmt.Sprint(v, ": ")
+		for _, w := range g.adj[v] {
+			s += fmt.Sprint(w, ",")
+		}
+		s += fmt.Sprintln()
+	}
+	return s
 }
