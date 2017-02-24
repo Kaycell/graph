@@ -10,8 +10,8 @@ type Graph struct {
 	adj        [][]int
 }
 
-// New returns an initialized graph with n vertices
-func New(n int) *Graph {
+// NewGraph returns an initialized graph with n vertices
+func NewGraph(n int) *Graph {
 	g := &Graph{}
 	g.nbVertices = n
 	g.nbEdges = 0

@@ -3,7 +3,7 @@ package graph
 import "testing"
 
 func TestNew(t *testing.T) {
-	g := New(2)
+	g := NewGraph(2)
 	if g.nbVertices != 2 ||
 		g.nbEdges != 0 ||
 		len(g.adj) != 2 {
@@ -12,7 +12,7 @@ func TestNew(t *testing.T) {
 }
 
 func TestAddEdge(t *testing.T) {
-	g := New(2)
+	g := NewGraph(2)
 	g.AddEdge(0, 1)
 	if g.nbVertices != 2 ||
 		g.nbEdges != 1 ||
@@ -23,7 +23,7 @@ func TestAddEdge(t *testing.T) {
 }
 
 func TestString(t *testing.T) {
-	g := New(3)
+	g := NewGraph(3)
 	g.AddEdge(0, 1)
 	g.AddEdge(0, 2)
 
